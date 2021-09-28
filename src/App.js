@@ -56,6 +56,23 @@ function App() {
         </button>
         <p id="date">{day + "/" + month + "/" + year}</p>
       </section>
+      <section className="weather">
+        <p className="city">Name, Country</p>
+        <h1 id="icon">icon</h1>
+        <div className="main">
+          <p></p>
+          <p>Mainly through day: </p>
+        </div>
+        <p className="wind">Wind speed:</p>
+        <div className="sun">
+          <div>
+            <h5>Sunrise</h5>
+          </div>
+          <div>
+            <h5>Sunset</h5>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
