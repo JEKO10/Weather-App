@@ -61,6 +61,11 @@ function App() {
         </button>
         <p id="date">{day + "/" + month + "/" + year}</p>
       </section>
+      {weather.cod === "404" || weather.cod === "400" ? (
+        <p className="noCity">{weather.message}</p>
+      ) : (
+        ""
+      )}
       {typeof weather.main != "undefined" ? (
         <section className="weather">
           <p className="city">
@@ -68,7 +73,7 @@ function App() {
           </p>
           <h1 id="icon">
             {weather.weather[0].main === "Clear" ? (
-              <BiSun id="s" />
+              <BiSun id="sun" />
             ) : weather.weather[0].main === "Thunderstorm" ? (
               <IoThunderstormOutline id="thunder" />
             ) : weather.weather[0].main === "Drizzle" ? (
@@ -89,13 +94,13 @@ function App() {
           </div>
           <p className="wind">
             Wind speed: {weather.wind.speed}
-            <BiWind id="bi" />
+            <BiWind id="wind" />
           </p>
-          <div className="sun">
+          <div className="zenit">
             <div>
               <h5>Sunrise</h5>
               <p className="para">
-                <FiSunrise id="s" />
+                <FiSunrise id="sun" />
                 {new Date(weather.sys.sunrise * 1000)
                   .toUTCString()
                   .slice(16, 22)}
@@ -104,7 +109,7 @@ function App() {
             <div>
               <h5>Sunset</h5>
               <p className="para">
-                <FiSunset id="s" />
+                <FiSunset id="sun" />
                 {new Date(weather.sys.sunset * 1000)
                   .toUTCString()
                   .slice(16, 22)}

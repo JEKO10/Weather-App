@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+* {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body {
+  /* background-color: #dbdbdb; */
+  background-color: #00277e;
+  color: #fff;
+}
+
+.noCity {
+  text-align: center;
+  text-transform: capitalize;
+  color: red;
+  font-size: 2rem;
+}
+
+.btns * {
+  margin: 0 20px;
+}
+
+input,
+button {
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+input {
+  background-color: lightskyblue;
+  outline: none;
+  margin-right: 2rem;
+}
+
+button {
+  background-color: #fff;
+  font-weight: 700;
+}
+
+#date {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.main p:first-child {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.main p:nth-child(2) {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.city {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.zenit {
+  font-size: 2rem;
+  /* width: 25%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.zenit * {
+  padding: 0 5px;
+  text-align: center;
+}
+
+.weather h5 {
+  margin: 0;
+}
+
+.para {
+  margin: 1rem 0 0 0;
+}
+
+.para * {
+  padding: 0 10px;
+}
+
+.wind {
+  font-size: 2rem;
+}
+
+.wind * {
+  padding: 0 10px;
+}
+
+#icon {
+  font-size: 3rem;
+  margin: 0;
+  padding: 20px 0 5px 0;
+}
+
+#sun {
+  color: #ff9d25;
+}
+
+#wind {
+  font-size: 1.5rem;
+  color: #a3a3a3;
+}
+
+#thunder {
+  color: #0f81eb;
+}
+
+#cloud {
+  color: #e7e7e7;
+  font-size: 4rem;
+  padding: 0;
+}
+
+#fog {
+  color: #a3a3a3;
+}
+
+@media screen and (max-width: 667px) {
+  .btns * {
+    margin: 0 5px;
+  }
+
+  .wind {
+    font-size: 1.5rem;
+  }
+
+  input {
+    margin-right: 1rem;
+  }
+
+  input,
+  button {
+    font-size: 1rem;
+  }
+
+  #date {
+    font-size: 1rem;
+  }
+}
