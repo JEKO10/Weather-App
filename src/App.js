@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const api = {
   key: "30eb85b09f9584e4d9c77aee8b3aaf05",
@@ -8,6 +8,7 @@ const api = {
 function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState([]);
+  const inputFocus = React.useRef(null);
 
   const fetchData = async () => {
     try {
@@ -22,9 +23,9 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    inputFocus.current.focus();
+  }, []);
 
   return (
     <>
@@ -36,6 +37,7 @@ function App() {
             setQuery(e.target.value);
           }}
           value={query}
+          ref={inputFocus}
         />
         <button
           type="submit"
