@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const api = {
   key: "30eb85b09f9584e4d9c77aee8b3aaf05",
@@ -6,12 +6,13 @@ const api = {
 };
 
 function App() {
+  const [query, setQuery] = useState("");
   const [weather, setWeather] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `${api.base}weather?q=London&appid=${api.key}`
+        `${api.base}weather?q=${query}&appid=${api.key}`
       );
       const data = await response.json();
       setWeather(data);
@@ -21,14 +22,33 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
-    <div className="App">
-      <h1></h1>
-    </div>
+    <>
+      <section className="search">
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+          value={query}
+        />
+        <button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            fetchData();
+            setQuery("");
+          }}
+        >
+          SUBMIT
+        </button>
+      </section>
+    </>
   );
 }
 
