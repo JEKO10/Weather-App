@@ -96,6 +96,13 @@ function App() {
             Wind speed: {weather.wind.speed}
             <BiWind id="wind" />
           </p>
+          <div className="temp">
+            <p id="temp">Temperature: {weather.main.temp} K</p>
+            <div>
+              <p>Min: {weather.main.temp_min} K</p>
+              <p>Max: {weather.main.temp_max} K</p>
+            </div>
+          </div>
           <div className="zenit">
             <div>
               <h5>Sunrise</h5>
