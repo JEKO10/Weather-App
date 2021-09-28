@@ -13,6 +13,7 @@ const api = {
 function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState([]);
+  const [unit, setUnit] = useState("");
   const inputFocus = React.useRef(null);
 
   const fetchData = async () => {
@@ -40,26 +41,44 @@ function App() {
   return (
     <>
       <section className="search">
-        <input
-          type="text"
-          placeholder="Search..."
+        <div className="first">
+          <div>
+            <input
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+              value={query}
+              ref={inputFocus}
+            />
+            <button
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                fetchData();
+                setQuery("");
+              }}
+            >
+              SUBMIT
+            </button>
+          </div>
+          <p id="date">{day + "/" + month + "/" + year}</p>
+        </div>
+        <select
+          name="units"
+          className="units"
           onChange={(e) => {
-            setQuery(e.target.value);
-          }}
-          value={query}
-          ref={inputFocus}
-        />
-        <button
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            fetchData();
-            setQuery("");
+            if (e.target.value === "celsius" || "kelvin" || "fahrenheit") {
+              setUnit(e.target.value);
+            }
           }}
         >
-          SUBMIT
-        </button>
-        <p id="date">{day + "/" + month + "/" + year}</p>
+          <option value="kelvin">Kelvin</option>
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+        </select>
+        <p id="smallDate">{day + "/" + month + "/" + year}</p>
       </section>
       {weather.cod === "404" || weather.cod === "400" ? (
         <p className="noCity">{weather.message}</p>
@@ -97,10 +116,46 @@ function App() {
             <BiWind id="wind" />
           </p>
           <div className="temp">
-            <p id="temp">Temperature: {weather.main.temp} K</p>
+            <p id="temp">
+              {unit === "celsius"
+                ? "Temperature: " +
+                  (weather.main.temp - 273.15).toString().slice(0, 5) +
+                  "°C"
+                : unit === "fahrenheit"
+                ? "Temperature: " +
+                  (weather.main.temp * (9 / 5) - 459.67)
+                    .toString()
+                    .slice(0, 5) +
+                  "°F"
+                : "Temperature: " + weather.main.temp + "K"}
+            </p>
             <div>
-              <p>Min: {weather.main.temp_min} K</p>
-              <p>Max: {weather.main.temp_max} K</p>
+              <p id="min">
+                {unit === "celsius"
+                  ? "Min: " +
+                    (weather.main.temp_min - 273.15).toString().slice(0, 5) +
+                    "°C"
+                  : unit === "fahrenheit"
+                  ? "Min: " +
+                    (weather.main.temp_min * (9 / 5) - 459.67)
+                      .toString()
+                      .slice(0, 5) +
+                    "°F"
+                  : "Min: " + weather.main.temp_min + "K"}
+              </p>
+              <p id="max">
+                {unit === "celsius"
+                  ? "Max: " +
+                    (weather.main.temp_max - 273.15).toString().slice(0, 5) +
+                    "°C"
+                  : unit === "fahrenheit"
+                  ? "Max: " +
+                    (weather.main.temp_max * (9 / 5) - 459.67)
+                      .toString()
+                      .slice(0, 5) +
+                    "°F"
+                  : "Max: " + weather.main.temp_max + "K"}
+              </p>
             </div>
           </div>
           <div className="zenit">

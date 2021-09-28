@@ -17,15 +17,23 @@ body {
   font-size: 2rem;
 }
 
-.btns * {
-  margin: 0 20px;
+.search div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 input,
-button {
+button,
+.units {
   font-size: 2rem;
   padding: 10px;
   border-radius: 10px;
+}
+
+.units {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 input {
@@ -34,7 +42,8 @@ input {
   margin-right: 2rem;
 }
 
-button {
+button,
+.units {
   background-color: #fff;
   font-weight: 700;
 }
@@ -158,7 +167,11 @@ button {
   color: #a3a3a3;
 }
 
-@media screen and (max-width: 667px) {
+#smallDate {
+  display: none;
+}
+
+@media screen and (max-width: 778px) {
   .btns * {
     margin: 0 5px;
   }
@@ -176,7 +189,41 @@ button {
     font-size: 1rem;
   }
 
+  .units {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
   #date {
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  #date {
+    display: none;
+  }
+
+  #temp {
+    font-size: 1.5rem;
+  }
+
+  .temp div * {
+    padding: 0 5px;
+    font-size: 1.2rem;
+  }
+
+  #smallDate {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  input {
+    margin-right: 0;
+  }
+
+  .units {
+    margin-bottom: 0;
   }
 }
