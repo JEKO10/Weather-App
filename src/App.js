@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { BiSun, BiWind } from "react-icons/bi";
+import { FiSunrise, FiSunset } from "react-icons/fi";
+import { WiCloudy } from "react-icons/wi";
+import { RiDrizzleLine, RiFoggyLine, RiSnowyLine } from "react-icons/ri";
+import { IoRainyOutline, IoThunderstormOutline } from "react-icons/io5";
 
 const api = {
   key: "30eb85b09f9584e4d9c77aee8b3aaf05",
@@ -56,23 +61,60 @@ function App() {
         </button>
         <p id="date">{day + "/" + month + "/" + year}</p>
       </section>
-      <section className="weather">
-        <p className="city">Name, Country</p>
-        <h1 id="icon">icon</h1>
-        <div className="main">
-          <p></p>
-          <p>Mainly through day: </p>
-        </div>
-        <p className="wind">Wind speed:</p>
-        <div className="sun">
-          <div>
-            <h5>Sunrise</h5>
+      {typeof weather.main != "undefined" ? (
+        <section className="weather">
+          <p className="city">
+            {weather.name}, {weather.sys.country}
+          </p>
+          <h1 id="icon">
+            {weather.weather[0].main === "Clear" ? (
+              <BiSun id="s" />
+            ) : weather.weather[0].main === "Thunderstorm" ? (
+              <IoThunderstormOutline id="thunder" />
+            ) : weather.weather[0].main === "Drizzle" ? (
+              <RiDrizzleLine id="thunder" />
+            ) : weather.weather[0].main === "Rain" ? (
+              <IoRainyOutline id="thunder" />
+            ) : weather.weather[0].main === "Snow" ? (
+              <RiSnowyLine id="thunder" />
+            ) : weather.weather[0].main === "Clouds" ? (
+              <WiCloudy id="cloud" />
+            ) : (
+              <RiFoggyLine id="fog" />
+            )}
+          </h1>
+          <div className="main">
+            <p>{weather.weather[0].description}</p>
+            <p>Mainly through day: {weather.weather[0].main}</p>
           </div>
-          <div>
-            <h5>Sunset</h5>
+          <p className="wind">
+            Wind speed: {weather.wind.speed}
+            <BiWind id="bi" />
+          </p>
+          <div className="sun">
+            <div>
+              <h5>Sunrise</h5>
+              <p className="para">
+                <FiSunrise id="s" />
+                {new Date(weather.sys.sunrise * 1000)
+                  .toUTCString()
+                  .slice(16, 22)}
+              </p>
+            </div>
+            <div>
+              <h5>Sunset</h5>
+              <p className="para">
+                <FiSunset id="s" />
+                {new Date(weather.sys.sunset * 1000)
+                  .toUTCString()
+                  .slice(16, 22)}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        ""
+      )}
     </>
   );
 }
