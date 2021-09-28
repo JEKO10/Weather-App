@@ -27,6 +27,11 @@ function App() {
     inputFocus.current.focus();
   }, []);
 
+  const today = new Date();
+  const day = today.getDate();
+  const month = today.getMonth();
+  const year = today.getFullYear();
+
   return (
     <>
       <section className="search">
@@ -49,6 +54,7 @@ function App() {
         >
           SUBMIT
         </button>
+        <p id="date">{day + "/" + month + "/" + year}</p>
       </section>
     </>
   );
