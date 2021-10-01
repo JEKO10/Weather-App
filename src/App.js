@@ -133,7 +133,7 @@ function App() {
               <p id="min">
                 {unit === "celsius"
                   ? "Min: " +
-                    (weather.main.temp_min - 273.15).toString().slice(0, 5) +
+                    (weather.main.temp_min - 273.15).toString().slice(0, 4) +
                     "°C"
                   : unit === "fahrenheit"
                   ? "Min: " +
@@ -146,7 +146,7 @@ function App() {
               <p id="max">
                 {unit === "celsius"
                   ? "Max: " +
-                    (weather.main.temp_max - 273.15).toString().slice(0, 5) +
+                    (weather.main.temp_max - 273.15).toString().slice(0, 4) +
                     "°C"
                   : unit === "fahrenheit"
                   ? "Max: " +
