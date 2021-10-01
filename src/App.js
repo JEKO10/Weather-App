@@ -119,7 +119,7 @@ function App() {
             <p id="temp">
               {unit === "celsius"
                 ? "Temperature: " +
-                  (weather.main.temp - 273.15).toString().slice(0, 5) +
+                  (weather.main.temp - 273.15).toString().slice(0, 4) +
                   "°C"
                 : unit === "fahrenheit"
                 ? "Temperature: " +
