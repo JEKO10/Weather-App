@@ -14,7 +14,6 @@ function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState([]);
   const [unit, setUnit] = useState("");
-  const inputFocus = React.useRef(null);
 
   const fetchData = async () => {
     try {
@@ -29,10 +28,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    inputFocus.current.focus();
-  }, []);
-
   const today = new Date();
   const day = today.getDate();
   const month = today.getMonth();
@@ -40,6 +35,17 @@ function App() {
 
   return (
     <>
+      {typeof weather.main != "undefined" && weather.main.temp > 293
+        ? document.body.classList.remove("medium") ||
+          document.body.classList.add("hot")
+        : typeof weather.main != "undefined" && weather.main.temp < 283
+        ? (document.body.className = "")
+        : typeof weather.main != "undefined" && weather.main.temp < 293
+        ? document.body.classList.add("medium")
+        : ""}
+      {weather.cod === "404" || weather.cod === "400"
+        ? (document.body.className = "")
+        : ""}
       <section className="search">
         <div className="first">
           <div>
@@ -50,7 +56,7 @@ function App() {
                 setQuery(e.target.value);
               }}
               value={query}
-              ref={inputFocus}
+              autoFocus
             />
             <button
               type="submit"
