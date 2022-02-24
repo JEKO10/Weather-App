@@ -5,10 +5,9 @@
 }
 
 body {
-  /* background-color: #00277e; */
   background: url("./images/sky.jpg") center/cover no-repeat;
   color: #000;
-  min-height: 95vh;
+  min-height: 98vh;
 }
 
 .hot {
@@ -21,7 +20,6 @@ body {
 }
 
 .cold {
-  /* background-color: #0949d3; */
   background: url("./images/cold.jpg") center/cover no-repeat;
   color: #fff;
 }
@@ -29,7 +27,7 @@ body {
 .noCity {
   text-align: center;
   text-transform: capitalize;
-  color: red;
+  color: #ff0000;
   font-size: 2rem;
 }
 
@@ -57,10 +55,11 @@ input {
   background-color: #87cefa;
   outline: none;
   margin-right: 2rem;
+  padding-left: 20px;
 }
 
 input:focus {
-  box-shadow: 0 0 15px #fff;
+  box-shadow: 0 0 25px #fff;
 }
 
 button,
