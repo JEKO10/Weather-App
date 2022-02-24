@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BiSun, BiWind } from "react-icons/bi";
 import { FiSunrise, FiSunset } from "react-icons/fi";
 import { WiCloudy } from "react-icons/wi";
@@ -36,12 +36,13 @@ function App() {
   return (
     <>
       {typeof weather.main != "undefined" && weather.main.temp > 293
-        ? document.body.classList.remove("medium") ||
+        ? document.body.classList.remove("cold") ||
           document.body.classList.add("hot")
         : typeof weather.main != "undefined" && weather.main.temp < 283
-        ? (document.body.className = "")
+        ? document.body.classList.remove("hot") ||
+          document.body.classList.add("cold")
         : typeof weather.main != "undefined" && weather.main.temp < 293
-        ? document.body.classList.add("medium")
+        ? (document.body.className = "")
         : ""}
       {weather.cod === "404" || weather.cod === "400"
         ? (document.body.className = "")
