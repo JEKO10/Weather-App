@@ -7,7 +7,7 @@
 body {
   background: url("./images/sky.jpg") center/cover no-repeat;
   color: #000;
-  min-height: 98vh;
+  min-height: 95vh;
 }
 
 .hot {
@@ -46,11 +46,6 @@ button,
   border: none;
 }
 
-.units {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
 input {
   background-color: #87cefa;
   outline: none;
@@ -62,10 +57,16 @@ input:focus {
   box-shadow: 0 0 25px #fff;
 }
 
+.units {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 button,
 .units {
   background-color: #fff;
   font-weight: 700;
+  cursor: pointer;
 }
 
 #date {
@@ -98,7 +99,7 @@ button,
 }
 
 .city {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 0;
 }
 

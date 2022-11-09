@@ -58,11 +58,16 @@ function App() {
               }}
               value={query}
               autoFocus
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  fetchData();
+                  setQuery("");
+                }
+              }}
             />
             <button
               type="submit"
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={() => {
                 fetchData();
                 setQuery("");
               }}
