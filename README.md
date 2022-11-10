@@ -1,5 +1,6 @@
 <h1 align="center">
-  Weather App(React)
+  Weather App <br/> 
+  (React)
 </h1>
 <br>
 
