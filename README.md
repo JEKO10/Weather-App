@@ -13,7 +13,7 @@
 
 ## Project task
 
-My first ever project pushed to GitHub and one of my first projects created using React. In this project, I learned how to use the useState hook and how to fetch data from API.
+My first ever project pushed to GitHub and one of the first projects created using React. In this project, I learned how to use the useState hook and how to fetch data from API.                                 
 
 ## Project overview
 
